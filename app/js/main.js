@@ -15,30 +15,34 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _questions = require('./questions');
+
+var _questions2 = _interopRequireDefault(_questions);
+
 console.log('Hello, World');
 
 //questions code
 (function () {
   var questions = [{
     question: 'Late in the game against Boise A&M, the Eagles score late to cut it to one.  For the extra point, what should Coach do?',
-    choices: ['Line up for the kick, but fake it!', 'Take the easy extra point and take your chances in OT', 'Go for two, run it off-tackle', 'Ask Luther, he\'ll know what to do'],
-    correctAnswer: 'Take the easy extra point and take your chances in OT'
+    choices: ['Line up for the kick, but fake it to try to get the 2!', 'Take the easy extra point and take your chances in OT'],
+    correctAnswer: 1
   }, {
-    question: 'What is 3*6?',
-    choices: [3, 6, 9, 12, 18],
-    correctAnswer: 4
-  }, {
-    question: 'What is 8*9?',
-    choices: [72, 99, 108, 134, 156],
+    question: 'You are winning by 2 but Wisconsin Tech has it first and goal on the 4 with 2:00 to play.',
+    choices: ['Call your timeouts to preserve as much time as possible', 'let the clock run, maybe the defense will hold'],
     correctAnswer: 0
   }, {
-    question: 'What is 1*7?',
-    choices: [4, 5, 6, 7, 8],
-    correctAnswer: 3
+    question: 'Trailing by 4 against Dubuque, you have the ball, first and goal on 2.  With 15 seconds left and no timeouts ...',
+    choices: ['Play action pass to the tight end with your fullback as option 2', 'no need to get fancy, just run the ball!'],
+    correctAnswer: 0
   }, {
-    question: 'What is 8*8?',
-    choices: [20, 30, 40, 50, 64],
-    correctAnswer: 4
+    question: 'You are winning 43-42 with 2:00 to play against Nebraska State.  You have the ball but it is 4th and 1 on your own 30 ...',
+    choices: ['Punt the ball and rely on the defense', 'Go for it!  If you get the first down, you win the game!,'],
+    correctAnswer: 1
+  }, {
+    question: 'St. Paul has just scored and on the last play of the game and they need 2 pts to tie.  Their qb will wrap up the Heisman with a victory.  Luther wants to dial up a blitz ...',
+    choices: ['Heck yeah we blitz!  Throw the kitchen sink at em', 'Sneak the dime package in and show blitz, but rush 3 and drop back in coverage'],
+    correctAnswer: 1
   }];
 
   var questionCounter = 0; //Tracks question number
@@ -185,7 +189,21 @@ console.log('Hello, World');
   }
 })();
 
-},{"jquery":2,"moment":3,"underscore":4}],2:[function(require,module,exports){
+},{"./questions":2,"jquery":3,"moment":4,"underscore":5}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var Questions = function Questions() {
+
+  this.color = yellow;
+};
+
+exports["default"] = Questions;
+module.exports = exports["default"];
+
+},{}],3:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9397,7 +9415,7 @@ return jQuery;
 
 }));
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 //! moment.js
 //! version : 2.10.6
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -12593,7 +12611,7 @@ return jQuery;
     return _moment;
 
 }));
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors

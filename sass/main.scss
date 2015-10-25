@@ -1,8 +1,9 @@
 @import "bourbon";
 @import "font-awesome";
 
-body {
-  background: #192A50;
+  body {
+    background-image: url("emblem.jpg");
+    background-repeat: repeat;
 }
 
 main {
@@ -34,11 +35,19 @@ main {
     border: 1px solid #008C36;
     border-radius: 50px;
     }
-    .actionbox {
+    #container {
     width: 502px;
     height: 284px;
     border: 1px solid #008C36;
     float: right;
+      #title {
+        color: #192a50;
+        outline-color: yellow;
+      }
+      #quiz { 
+        color: #f0db00;
+
+      }
     }
     
     .lower img{
@@ -53,7 +62,7 @@ main {
   }
   .scoreboard {
     position: absolute;
-    top: 350px;
+    top: 431px;
     left: 120px;
     float: left;
     display: block;
@@ -78,4 +87,7 @@ h1 {
 h2 {
   font-size: 14pt;
   text-align: center;
+}
+ul {
+  list-style: none;
 }
