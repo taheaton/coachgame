@@ -2018,10 +2018,6 @@
 .fa-fonticons:before {
   content: ""; }
 
-body {
-  background-image: url("emblem.jpg");
-  background-repeat: repeat; }
-
 main {
   max-width: 68em;
   margin-left: auto;
@@ -2075,11 +2071,12 @@ main {
   left: 120px;
   float: left;
   display: block;
-  background-color: black;
+  background-color: white;
   display: block;
   border: 1px solid #f0db00;
   border-radius: 50px;
-  height: 250px; }
+  height: 250px;
+  width: 50px; }
 
 h6 {
   color: white;
@@ -2097,5 +2094,10 @@ h2 {
 
 ul {
   list-style: none; }
+
+.background img {
+  width: 5%;
+  height: 5%;
+  repeat: repeat-y; }
 
 /*# sourceMappingURL=main.css.map */

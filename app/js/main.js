@@ -22,6 +22,12 @@ var _questions2 = _interopRequireDefault(_questions);
 console.log('Hello, World');
 
 //questions code
+var q1 = new _questions2['default']({
+  question: 'how do you do',
+  choices: ['a', 'b'],
+  correctAnswer: 0
+});
+
 (function () {
   var questions = [{
     question: 'Late in the game against Boise A&M, the Eagles score late to cut it to one.  For the extra point, what should Coach do?',
@@ -66,6 +72,12 @@ console.log('Hello, World');
     if (isNaN(selections[questionCounter])) {
       alert('Please make a selection!');
     } else {
+      //  if (selections = [0]){
+      //    alert ('Dude, no!  Kick the PAT and win the game in overtime.');
+      //  }
+      // if (selections = [0]){
+      //   alert ('1');
+      //  }
       questionCounter++;
       displayNext();
     }
@@ -110,6 +122,8 @@ console.log('Hello, World');
     var qElement = (0, _jquery2['default'])('<div>', {
       id: 'question'
     });
+    //  var comment = $('<h1>Bra ' + (selections) + ':</h1>');
+    //  qElement.append(comment);
 
     var header = (0, _jquery2['default'])('<h2>Question ' + (index + 1) + ':</h2>');
     qElement.append(header);
@@ -122,7 +136,15 @@ console.log('Hello, World');
 
     return qElement;
   }
+  function createCommentElement(index) {
+    var cElement = (0, _jquery2['default'])('<div>', {
+      id: 'comment'
+    });
+    var comment = (0, _jquery2['default'])('<h1>Bra ' + selections + ':</h1>');
+    cElement.append(comment);
 
+    return cElement;
+  }
   // Creates a list of the answer choices as radio inputs
   function createRadios(index) {
     var radioList = (0, _jquery2['default'])('<ul>');
@@ -187,6 +209,22 @@ console.log('Hello, World');
     score.append('You got ' + numCorrect + ' questions out of ' + questions.length + ' right!!!');
     return score;
   }
+
+  function displayScoreboard() {
+    var numCorrect = 0;
+    for (var i = 0; i < selections.length; i++) {
+      if (selections[i] === questions[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
+
+    numCorrect.append('You got ' + numCorrect + ' questions out of ' + questions.length + ' right!!!');
+    return numCorrect;
+    var sb = document.querySelector('sb');
+    var textNode = document.createTextNode(numCorrect);
+    // Append newly created node to our answer element
+    sb.appendChild(textNode);
+  }
 })();
 
 },{"./questions":2,"jquery":3,"moment":4,"underscore":5}],2:[function(require,module,exports){
@@ -195,12 +233,15 @@ console.log('Hello, World');
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var Questions = function Questions() {
-
-  this.color = yellow;
+var Question = function Question(obj) {
+  obj = obj || {};
+  this.id = obj.id;
+  this.color = obj.color;
+  this.question = obj.question;
+  this.choices = obj.choices;
+  this.correctAnswer = obj.correctAnswer;
 };
-
-exports["default"] = Questions;
+exports["default"] = Question;
 module.exports = exports["default"];
 
 },{}],3:[function(require,module,exports){

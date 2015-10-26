@@ -2,10 +2,16 @@ import $ from 'jquery';
 import _ from 'underscore';
 import moment from 'moment';
 
-import Questions from './questions';
+import Question from './questions';
 console.log('Hello, World');
 
 //questions code
+let q1 = new Question({
+  question: 'how do you do',
+  choices: ['a','b',],
+  correctAnswer: 0
+});
+
 (function() {
   let questions = [{
     question: 'Late in the game against Boise A&M, the Eagles score late to cut it to one.  For the extra point, what should Coach do?',
@@ -35,7 +41,7 @@ console.log('Hello, World');
   
   // Display initial question
   displayNext();
-  
+
   // Click handler for the 'next' button
   $('#next').on('click', function(e) {
     e.preventDefault();
@@ -50,6 +56,12 @@ console.log('Hello, World');
     if (isNaN(selections[questionCounter])) {
       alert('Please make a selection!');
     } else {
+    //  if (selections = [0]){
+    //    alert ('Dude, no!  Kick the PAT and win the game in overtime.');
+    //  }
+     // if (selections = [0]){
+     //   alert ('1');
+    //  }
       questionCounter++;
       displayNext();
     }
@@ -94,7 +106,9 @@ console.log('Hello, World');
     var qElement = $('<div>', {
       id: 'question'
     });
-    
+  //  var comment = $('<h1>Bra ' + (selections) + ':</h1>');
+  //  qElement.append(comment);
+
     var header = $('<h2>Question ' + (index + 1) + ':</h2>');
     qElement.append(header);
     
@@ -106,7 +120,15 @@ console.log('Hello, World');
     
     return qElement;
   }
-  
+  function createCommentElement(index) {
+    var cElement = $('<div>', {
+      id: 'comment'
+    });
+    var comment = $('<h1>Bra ' + (selections) + ':</h1>');
+    cElement.append(comment);
+
+    return cElement;
+  }
   // Creates a list of the answer choices as radio inputs
   function createRadios(index) {
     var radioList = $('<ul>');
@@ -172,4 +194,26 @@ console.log('Hello, World');
                  questions.length + ' right!!!');
     return score;
   }
+
+  function displayScoreboard() {
+    var numCorrect = 0;
+    for (var i = 0; i < selections.length; i++) {
+      if (selections[i] === questions[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
+    
+    numCorrect.append('You got ' + numCorrect + ' questions out of ' +
+                 questions.length + ' right!!!');
+    return numCorrect;
+    var sb = document.querySelector('sb');
+    var textNode = document.createTextNode(numCorrect);
+    // Append newly created node to our answer element
+  sb.appendChild(textNode);
+  }
+  
+    
+
+
+  
 })();
